@@ -1,0 +1,10 @@
+ public **void** ShootAll()
+ {
+     **foreach** (var shootPoint **in** shootPoints)
+     {
+         GameObject bullet = Instantiate(bulletPrefab, shootPoint.**position**, shootPoint.**rotation**);
+
+         bullet.GetComponent<Rigidbody2D>().**AddForce**(shootPoint.up * shootPower, ForceMode2D.Impulse);
+         bullet.GetComponent<Bullet>().**SetDamage**(shootDamage);
+     }
+ }
